@@ -1,49 +1,65 @@
 import os, shutil
 
-print("########### MENU #############")
-print("")
-print("1- CRIAR PASTA ")
-print("2- REMOVER PASTA ")
-print("3- REMOVER SOMENTE ARQUIVOS ")
-print("4- LISTAR DIREtORIOs ")
-print("5- CRIAR PASTAS COM SUBPASTAS DENTRO ")
-print("6- CALCULAR TAMANHO DE UM ARQUIVO")
-print("7- FECHAR APLICAÇÃO")
+
+def Criar_pasta():
+    os.mkdir(input("Digite o nome para pasta : "))
+    print("PASTA CRIADA COM SUCESSO")
 
 
+def Criar_subpastas():
+    os.makedirs(input("Digite o caminho da pasta onde quer criar ? "))
+    print("PASTA CRIADA COM SUCESSO")
 
 
-
-print("")
-def menu():
+def Remover_pasta():
     while True:
-        try:
-            option = int(input("Digite um numero ? "))
-            if option == 1:
-                os.mkdir(input("Digite o nome para pasta a ser criada : "))
-                print("PASTA CRIADA COM SUCESSO")
-            elif option == 2:
-                shutil.rmtree(input("Digite o nome da pasta a ser removida ? "))
-                print("PASTA REMOVIDA COM SUCESSO")
-            elif option == 3:
-                os.remove(input("Digite o nome do arquivo a ser removido? "))
-                print("ARQUIVO REMOVIDO COM SUCESSO")
-            elif option == 4:
-                listar_diretorio = os.listdir()
-                print(listar_diretorio)
-            elif option == 5:
-                os.makedirs(input("Digite o caminho da pasta onde quer criar ? "))
-                print("PASTA CRIADA COM SUCESSO")
-            elif option == 6:
-                Tamanho = os.path.getsize(input("Digite o nome do arquivo que quer verificar o tamanho  ? "))
-                print(Tamanho,"Bytes")
-            elif option == 7:
-                break
-            elif option != 3 or option != 2 or option != 1 or option != 5:
-                print("ERRO DIGITE UMA OPÇÃO VALIDA !! ")
-        except ValueError :
-            print("Por favor Digite somente numeros nessa etapa da aplicação")
-
-menu()
+        shutil.rmtree(input("Digite o nome da pasta ? "))
+        print("PASTA REMOVIDA COM SUCESSO")
 
 
+def Remover_arquivos():
+    while True:
+        os.remove(input("Digite o nome do arquivo ? "))
+        print("ARQUIVOS REMOVIDOS COM SUCESSO")
+
+
+def Listar_diretorio():
+    while True:
+        list_diretorio = os.listdir()
+        print(list_diretorio)
+
+
+def Tamanho_Arquivo():
+    Tamanho = os.path.getsize(input("Digite o nome do arquivo que quer verificar o tamanho  ? "))
+    print(Tamanho, "Bytes")
+
+
+def main():
+    while True:
+
+        print("########### MENU #############")
+        print("")
+        print("1- CRIAR PASTA ")
+        print("2- CRIAR PASTAS COM SUBPASTAS DENTRO ")
+        print("3- REMOVER PASTA ")
+        print("4- REMOVER SOMENTE ARQUIVOS ")
+        print("5- LISTAR DIREtORIOs ")
+        print("6- CALCULAR TAMANHO DE UM ARQUIVO")
+        print("7- FECHAR APLICAÇÃO")
+
+        resp = int(input(" Diigte um numero "))
+        if resp == 1:
+            Remover_pasta()
+        elif resp == 2:
+            Remover_arquivos()
+        elif resp == 3:
+            Remover_pasta()
+        elif resp == 4:
+            Remover_arquivos()
+        elif resp == 5:
+            Listar_diretorio()
+        elif resp == 6:
+            Tamanho_Arquivo()
+
+
+main()
