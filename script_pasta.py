@@ -7,7 +7,9 @@ print("2- REMOVER PASTA ")
 print("3- REMOVER SOMENTE ARQUIVOS ")
 print("4- LISTAR DIREORIO ")
 print("5- CRIAR PASTAS COM SUBPASTAS DENTRO ")
-print("6- FECHAR APLICAÇÃO")
+print("6- CALCULAR TAMANHO DE UM ARQUIVO")
+print("7- FECHAR APLICAÇÃO")
+
 
 
 
@@ -33,8 +35,10 @@ def menu():
                 os.makedirs(input("Digite o caminho da pasta onde quer criar ? "))
                 print("PASTA CRIADA COM SUCESSO")
             elif option == 6:
+                Tamanho = os.path.getsize(input("Digite o nome do arquivo que quer verificar o tamanho  ? "))
+                print(Tamanho,"Bytes")
+            elif option == 7:
                 break
-
             elif option != 3 or option != 2 or option != 1 or option != 5:
                 print("ERRO DIGITE UMA OPÇÃO VALIDA !! ")
         except ValueError :
