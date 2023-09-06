@@ -28,7 +28,6 @@ def Listar_diretorio():
         list_diretorio = os.listdir()
         print(list_diretorio)
 
-
 def Tamanho_Arquivo():
     Tamanho = os.path.getsize(input("Digite o nome do arquivo que quer verificar o tamanho  ? "))
     print(Tamanho, "Bytes")
@@ -36,30 +35,37 @@ def Tamanho_Arquivo():
 
 def main():
     while True:
+        try:
+            print("########### MENU #############")
+            print("")
+            print("INFORMAÇÕES DE DIRETÓRIOS")
+            print("1- CRIAR PASTA ")
+            print("2- CRIAR PASTAS COM SUBPASTAS DENTRO ")
+            print("3- REMOVER PASTA ")
+            print("4- REMOVER SOMENTE ARQUIVOS ")
+            print("5- LISTAR DIREtORIOs ")
+            print("6- CALCULAR TAMANHO DE UM ARQUIVO")
+            print("10- FECHAR APLICAÇÃO")
+            print("")
+            print("")
 
-        print("########### MENU #############")
-        print("")
-        print("1- CRIAR PASTA ")
-        print("2- CRIAR PASTAS COM SUBPASTAS DENTRO ")
-        print("3- REMOVER PASTA ")
-        print("4- REMOVER SOMENTE ARQUIVOS ")
-        print("5- LISTAR DIREtORIOs ")
-        print("6- CALCULAR TAMANHO DE UM ARQUIVO")
-        print("7- FECHAR APLICAÇÃO")
-
-        resp = int(input(" Diigte um numero "))
-        if resp == 1:
-            Remover_pasta()
-        elif resp == 2:
-            Remover_arquivos()
-        elif resp == 3:
-            Remover_pasta()
-        elif resp == 4:
-            Remover_arquivos()
-        elif resp == 5:
-            Listar_diretorio()
-        elif resp == 6:
-            Tamanho_Arquivo()
+            resp = int(input("Escolha  uma Opção ?  "))
+            if resp == 1:
+                Criar_pasta()
+            elif resp == 2:
+                Criar_subpastas()
+            elif resp == 3:
+                Remover_pasta()
+            elif resp == 4:
+                Remover_arquivos()
+            elif resp == 5:
+                Listar_diretorio()
+            elif resp == 6:
+                Tamanho_Arquivo()
+            elif resp == 10:
+                break
+        except ValueError :
+            print("Por favor Digite um numero correto !!")
 
 
 main()
