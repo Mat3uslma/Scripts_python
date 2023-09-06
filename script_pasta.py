@@ -2,12 +2,16 @@ import os, shutil
 
 print("########### MENU #############")
 print("")
-print("1- CRIAR PASTA "
-      "2-REMOVER PASTA "
-      "3- REMOVER SOMENTE ARQUIVOS "
-      "4- FECHAR MENU "
-      "5- LISTAR DIREORIO"
-      )
+print("1- CRIAR PASTA ")
+print("2- REMOVER PASTA ")
+print("3- REMOVER SOMENTE ARQUIVOS ")
+print("4- LISTAR DIREORIO ")
+print("5- CRIAR PASTAS COM SUBPASTAS DENTRO ")
+print("6- FECHAR APLICAÇÃO")
+
+
+
+
 print("")
 def menu():
     while True:
@@ -22,10 +26,13 @@ def menu():
             elif option == 3:
                 os.remove(input("Digite o nome do arquivo a ser removido? "))
                 print("ARQUIVO REMOVIDO COM SUCESSO")
-            elif option == 5:
+            elif option == 4:
                 listar_diretorio = os.listdir()
                 print(listar_diretorio)
-            elif option == 4:
+            elif option == 5:
+                os.makedirs(input("Digite o caminho da pasta onde quer criar ? "))
+                print("PASTA CRIADA COM SUCESSO")
+            elif option == 6:
                 break
 
             elif option != 3 or option != 2 or option != 1 or option != 5:
